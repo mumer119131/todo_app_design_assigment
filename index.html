@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Todo App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div class="main__container">
+            <div class="sidebar">
+                <h3 class="menuHide">- PROJECT TODO -</h3>
+                <div class="menu__container">
+                    <div class="menu__item" title="My Day" onclick="toggleTask()">
+                        <i class="fa-solid fa-bars-progress"></i>
+                        <h4 class="menuHide">My Day</h4>
+                    </div>
+
+                    <div class="menu__item" title="Important">
+                        <i class="fa-solid fa-star"></i>
+                        <h4 class="menuHide">Important</h4>
+                    </div>
+
+                    <div class="menu__item" title="Tasks">
+                        <i class="fa-brands fa-stack-overflow"></i>
+                        <h4 class="menuHide">Tasks</h4>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="menu__item" title="Tasks">
+                        <i class="fa-solid fa-thumbtack"></i>
+                        <h4 class="menuHide">Tasks</h4>
+                    </div>
+
+                <p class="menuHide">&copy; Designed By : Muhammad Umer</p>
+                </div>
+            </div>
+            <div class="main__content">
+                <div class="input__container" hidden>
+                    <h2>Add New TODO</h2>
+                    <div class="input__item">
+                        <i class="fa-solid fa-pencil"></i>
+                        <input type="text" placeholder="Title" id="title" required>
+                    </div>
+
+                    <div class="input__item">
+                        <i class="fa-solid fa-location-arrow"></i>
+                        <input type="text" placeholder="Location" id="location">
+                    </div>
+
+                    <div class="input__item">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <input type="text" placeholder="Description" id="desc" required>
+                    </div>
+
+                    <div class="input__item">
+                        <i class="fa-solid fa-file-lines" style="display: none;"></i>
+                        <button onclick="addItem()">Add</button>
+                    </div>
+                    <!-- <button>ADD YOUR THING</button> -->
+                </div> 
+
+                <div class="tasks__container">
+                    <div class="tasks__header">
+                        <h2>My Day</h2>
+                        <p>Today</p>
+                    </div>
+                    <div class="tasks__items__container">
+                        <!-- <div class="task__item">
+                            <div class="task__ribbon"></div>
+                            <input type="checkbox" name="" id="">
+                            <div class="task__desc">
+                                <h3>Task</h3>
+                                <p><i class="fa-solid fa-earth-americas"></i> Location</p>
+                            </div>
+                            <i class="fa-solid fa-circle-minus"></i>
+                        </div> -->
+                    </div>
+                    <i class="fa-solid fa-plus" id='add-task' onclick="addTaskBtn()"></i>
+                </div>
+                <i class="fa-solid fa-arrow-left" id='menu-toggle' onclick="menuToggle()"></i>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
