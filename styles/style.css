@@ -39,6 +39,7 @@
 
 .menu__container{
     margin-top: 2rem;
+    transition: 0.5s linear;
 }
 .menu__item{
     display: flex;
@@ -79,11 +80,11 @@
     transition: 0.5s linear;
     text-align: center;
 }
-.main__container h2:hover::after{
-    content: ' -';
+.main__container h2{
+    transition: 0.5s linear;
 }
-.main__container h2:hover::before{
-    content: '- ';
+.main__container h2:hover{
+    letter-spacing: 4px;
 }
 
 .input__container{
@@ -153,6 +154,7 @@
     transition: 0.5s linear;
 }
 #add-task{
+    z-index: 1000;
     position: fixed;
     bottom: 3rem;
     right: 2rem;
@@ -208,7 +210,7 @@
     -webkit-box-shadow: 5px 0px 14px -1px rgba(0,0,0,0.4);
     -moz-box-shadow: 5px 0px 14px -1px rgba(0,0,0,0.4);
     margin-bottom: 2rem;
-    transition: 0.3s linear;
+    transition: 0.7s linear;
     cursor: pointer;
 }
 .task__item:hover > .task__ribbon{
@@ -226,7 +228,7 @@
 }
 .task__item .task__ribbon{
     z-index: 1;
-    background-color: rgb(11, 55, 143);
+    background : linear-gradient(90deg,rgb(11, 55, 143), rgba(3, 27, 73, 0.993));
     height: 100%;
     border-radius: 8px 0 0 8px;
     width: 0.5rem;
@@ -251,6 +253,55 @@
     font-weight: 600;
 }
 .task__item .task__desc p{
+    text-align: left !important;
     color: grey;
     font-size: 0.8rem;
+}
+
+
+
+/* ==================MEDIA QURIES (MEDIUM DEVICES)=============== */
+
+@media screen and (max-width:1024px){
+       
+    .input__container{
+        justify-content: start;
+        padding-top: 7rem;
+    }
+}
+
+/* ==================MEDIA QURIES (SMALL DEVICES)=============== */
+
+@media screen and (max-width:600px) {
+    .sidebar{
+        flex-basis: 0%;
+        padding: 1rem;
+    }
+    .sidebar h3{
+        font-size: 1rem;
+        display: none;
+    }
+    .menu__item{
+        padding: 1.2rem 0;
+    }
+    .menu__item h4{
+        display: none;
+    }
+    .menu__container hr{
+        margin: 0.2rem;
+    }
+    .input__item input{
+        width: 80%;
+    }
+    .input__container{
+        justify-content: start;
+        padding-top: 5rem;
+    }
+    .task__item input{
+        display: none;
+    }
+    .task__desc h3{
+        font-size: 1rem;
+        text-align: left;
+    }
 }

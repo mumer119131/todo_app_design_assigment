@@ -15,6 +15,7 @@ function loadTasks(){
     for(let i=0 ; i < todo_list.length ; i++){
         let task_item = document.createElement('div')
         task_item.className = "task__item"
+        task_item.accessKey = i
         task__container.appendChild(task_item)
         let task_ribbon = document.createElement('div')
         task_ribbon.className = 'task__ribbon'
@@ -37,10 +38,20 @@ function loadTasks(){
 
         let delete_btn = document.createElement('i')
         delete_btn.className = 'fa-solid fa-circle-minus'
+        delete_btn.setAttribute('onclick', 'deleteTask(event)')
         task_item.append(delete_btn)
+
 
     }
 
+}
+
+function deleteTask(e){
+    e = e || window.event
+    var target = e.target || e.srcElement
+    let index = target.parentElement.accessKey
+    todo_list.splice(parseInt(index), 1)
+    loadTasks()
 }
 
 loadTasks()
@@ -52,8 +63,6 @@ function addItem(){
     let todo_item = [title_ele.value, location_ele.value, desc_ele.value]
     
     todo_list.push(todo_item)
-    
-    console.log(todo_list)
     
     // title_ele.value  = ""
     // location_ele.value = ""
