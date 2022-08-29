@@ -2,6 +2,7 @@
 var todo_list = []
 var isMenuOpen = true
 const task__container = document.querySelector('.tasks__items__container')
+const popup = document.querySelector(".popup")
 
 function loadTasks(){
     
@@ -16,13 +17,14 @@ function loadTasks(){
         let task_item = document.createElement('div')
         task_item.className = "task__item"
         task_item.accessKey = i
+        task_item.setAttribute('onclick', 'showTask(event)')
         task__container.appendChild(task_item)
         let task_ribbon = document.createElement('div')
         task_ribbon.className = 'task__ribbon'
         task_item.appendChild(task_ribbon)
-        let checkbox = document.createElement('input')
-        checkbox.type = 'checkbox'
-        task_item.appendChild(checkbox)
+        // let checkbox = document.createElement('input')
+        // checkbox.type = 'checkbox'
+        // task_item.appendChild(checkbox)
 
         let task_desc = document.createElement('div')
         task_desc.className = 'task__desc'
@@ -108,4 +110,31 @@ function addTaskBtn(){
     document.querySelector('.tasks__container').style.display = 'none'
 }
 
+function closePopup(){
+    popup.style.display = "none"
+    document.querySelector(".main__container").style.filter = "blur(0)"
+}
 
+function showTask(e){
+    e = e || window.event
+    var target = e.target || e.srcElement
+    if(target.className == "fa-solid fa-circle-minus" || target.type == "checkbox"){
+        return
+    }
+    document.querySelector(".main__container").style.filter = "blur(4px)"
+    let index = target.accessKey
+    if(index == ""){
+        index = target.parentElement.accessKey
+    }
+    if(index == ""){
+        index = target.parentElement.parentElement.accessKey
+
+    }
+
+    console.log(index, target)
+    document.querySelector('.popup__heading').innerHTML = todo_list[parseInt(index)][0]
+    document.querySelector('.popup__location').innerHTML = todo_list[parseInt(index)][1]
+    document.querySelector('.popup__desc').innerHTML = todo_list[parseInt(index)][2]
+
+    popup.style.display = "block"
+}

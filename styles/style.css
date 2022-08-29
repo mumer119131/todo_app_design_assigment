@@ -258,6 +258,46 @@
     font-size: 0.8rem;
 }
 
+.popup{
+    display: none;
+    position: absolute;
+    padding: 2rem;
+    top: 50%;
+    min-width: 30rem;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 8px ;
+    box-shadow: 10px 9px 28px -7px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 10px 9px 28px -7px rgba(0,0,0,0.64);
+    -moz-box-shadow: 10px 9px 28px -7px rgba(0,0,0,0.64);
+    z-index: 1000;
+}
+.popup h3{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+.popup p{
+    color: rgb(61, 61, 61);
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+.popup > i{
+    position: absolute;
+    text-align: right;
+    color: rgb(161, 8, 8);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    right: 1rem;
+    top: 1rem;
+    padding: 4px 6px;
+    border-radius: 50%;
+    transition: 0.5s linear;
+}
+.popup > i:hover{
+    background-color: rgb(161, 8, 8,0.3);
+}
 
 
 /* ==================MEDIA QURIES (MEDIUM DEVICES)=============== */
@@ -303,5 +343,8 @@
     .task__desc h3{
         font-size: 1rem;
         text-align: left;
+    }
+    .popup{
+        min-width: 20rem;
     }
 }
